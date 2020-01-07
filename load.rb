@@ -27,7 +27,10 @@ Sketchup::require('path_helper')#打开电脑路径相关
 Sketchup::require('circulator')#轮询器
 Sketchup::require('entity_traversal')#SU对象遍历
 Sketchup::require('uid')#不重复id生成器
-Sketchup::require('entity_uid')##SU对象与不重复id关联及查找
+Sketchup::require('entity_uid')#SU对象与不重复id关联及查找
+Sketchup::require('reuse_service')#公用服务调度
+Sketchup::require('api_server')#api及文件服务器
+Sketchup::require('browser')#加强回调的网页对话框
 
 #去除基础库文件被加载的记录
 $LOADED_FEATURES.replace($LOADED_FEATURES.find_all{|p| !p.include?('shink_')})
