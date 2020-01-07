@@ -18,6 +18,7 @@ require 'webrick'
 
 Sketchup::require('shink_library')
 Sketchup::require('load_gems')
+Sketchup::require('su_db')
 
 #去除基础库文件被加载的记录
 $LOADED_FEATURES.replace($LOADED_FEATURES.find_all{|p| !p.include?('shink_')})

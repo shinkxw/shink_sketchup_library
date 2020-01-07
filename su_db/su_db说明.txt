@@ -1,0 +1,13 @@
+su_db模块通过su提供的接口来存贮数据, 以下是模块内的各个类的说明:
+
+HashDb
+  可以像普通hash一样使用, 在使用[]=和replace方法时将自动保存
+  键值建议只使用字符串, 使用数字作为键值时, 回读会变成字符串
+Config
+  可以像普通OpenStruct一样使用, 赋值方法(带=的方法)时将自动保存
+ArrayDb
+  可以像普通的数组一样使用, 会自动保存的方法请查看need_save_mathods
+OpenStructArray
+  继承ArrayDb, 存储了OpenStruct的数组, 一般用于数据的本地缓存
+Table
+  可支持大量的自定义类数据的分片存储结构, 具体使用方式请参照代码内的说明及单元测试, 其中的TableTestObj类就是一个自定义类
