@@ -16,6 +16,7 @@ $LOAD_PATH.push("#{File.dirname(__FILE__)}/su_supplement/su_#{SHINK_LIBRARY::SuV
 
 require 'webrick'
 
+Sketchup::require('base64')#加载高版本的base64库
 Sketchup::require('shink_library')
 Sketchup::require('load_gems')
 Sketchup::require('su_db')
