@@ -25,6 +25,9 @@ Sketchup::require('su_entity_attribute')#跨线程设置对象属性
 Sketchup::require('su_db')#数据存储
 Sketchup::require('path_helper')#打开电脑路径相关
 Sketchup::require('circulator')#轮询器
+Sketchup::require('entity_traversal')#SU对象遍历
+Sketchup::require('uid')#不重复id生成器
+Sketchup::require('entity_uid')##SU对象与不重复id关联及查找
 
 #去除基础库文件被加载的记录
 $LOADED_FEATURES.replace($LOADED_FEATURES.find_all{|p| !p.include?('shink_')})
