@@ -1,0 +1,7 @@
+使用方式:
+  将基础库代码文件夹放在插件文件夹内并改名为shink_library
+  在插件加载前使用以下代码注入公用模块与gem(YourModule改为需要注入的模块)
+
+  $LOAD_PATH.unshift(File.dirname(__FILE__))
+  require_relative('shink_library/load')#加载基础库
+  SHINK_LIBRARY.inject_to_module(YourModule)#注入

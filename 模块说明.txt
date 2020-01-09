@@ -1,0 +1,53 @@
+su_puts
+  用于向控制台输出, 不受是否主线程限制
+  使用方式:
+    output(obj)
+
+su_run_js
+  用于让WebDialog执行js, 不受是否主线程限制
+  使用方式:
+    SuRunJs.set_web_dialog(key, web_dialog)#绑定web_dialog到key上
+    run_js(key, js)#在指定key的web_dialog上执行js
+
+su_entity_attribute
+  用于设置对象的属性, 不受是否主线程限制
+  使用方式:
+    SuEntityAttribute.add_set(entity, section, key, value)
+
+circulator
+  用于轮询, 可设置结束条件与结束后处理
+  使用方式:
+    Circulator.new(interval) do
+      # do some thing
+    end.set_stop_condition do
+      # determine whether the need to stop
+    end.after_stop do
+      # do after stop
+    end
+
+ApiServer
+  WEBrick的封装, 作为本地的API服务器, 用于浏览器与SU的通信, 使用时需要开启性能提升
+  使用方式:
+    server = ApiServer.new(local_server_port, PATH, log_path)
+    server.add_api '/entity_list' do |query|
+      result = get_result(query)
+      result ? result.to_json : ['请求数据失败', 502]
+    end
+    server.start
+
+ReuseService
+  用来注册和自动调度公用服务
+  使用方式:
+    LocalServer = ReuseService.new('local_server') do
+      #开启本地服务器
+      server_thread = Thread.new { server.start }
+      sleep(0.1)
+      #开启性能提升
+      Circulator.new(0.1) {sleep(0.01)}.set_stop_condition{ !server_thread.alive? }
+      server_thread
+    end.at_close do |server_thread|
+      server_thread.kill
+    end
+
+    LocalServer.add_user('XXXDialog')#打开窗口时调用
+    LocalServer.delete_user('XXXDialog')#关闭窗口时调用
