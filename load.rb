@@ -33,6 +33,7 @@ Sketchup::require('api_server')#api及文件服务器
 Sketchup::require('browser')#加强回调的网页对话框
 
 #去除基础库文件被加载的记录
+$LOAD_PATH.delete(File.dirname(__FILE__))
 $LOADED_FEATURES.replace($LOADED_FEATURES.find_all{|p| !p.include?('shink_')})
 
 module SHINK_LIBRARY
