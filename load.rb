@@ -37,5 +37,5 @@ $LOADED_FEATURES.replace($LOADED_FEATURES.find_all{|p| !p.include?('shink_')})
 
 module SHINK_LIBRARY
   VERSION = '0.0.1'.freeze
-  load_gem('zip')
+  # load_gem('zip')
 end
