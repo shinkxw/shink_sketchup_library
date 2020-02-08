@@ -55,6 +55,11 @@ module SHINK_LIBRARY
       set_size(width + 16, height + 38)
     end
 
+    def set_window_min_size(width, height)
+      self.min_width = width + 16
+      self.min_height = height + 38
+    end
+
     def after_close(&block)
       @after_close_block_arr ||= []
       @after_close_block_arr << block
