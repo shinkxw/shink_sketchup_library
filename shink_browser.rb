@@ -1,5 +1,5 @@
 module SHINK_LIBRARY
-  class Browser < UI::WebDialog
+  class ShinkBrowser < UI::WebDialog
 
     def add_callback(name)
       add_action_callback(name) do |d, json|

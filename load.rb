@@ -30,7 +30,7 @@ Sketchup::require('uid')#不重复id生成器
 Sketchup::require('entity_uid')#SU对象与不重复id关联及查找
 Sketchup::require('reuse_service')#公用服务调度
 Sketchup::require('api_server')#api及文件服务器
-Sketchup::require('browser')#加强回调的网页对话框
+Sketchup::require('shink_browser')#加强回调的网页对话框
 
 #去除基础库文件被加载的记录
 $LOAD_PATH.delete(File.dirname(__FILE__))
