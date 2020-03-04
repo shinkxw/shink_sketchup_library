@@ -6,6 +6,10 @@ module SHINK_LIBRARY
       @status, @users = :close, []
     end
 
+    def is_open?
+      return @status == :start
+    end
+
     def add_user(user)
       @users << user unless @users.include?(user)
       start
