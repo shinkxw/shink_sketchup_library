@@ -147,7 +147,7 @@ module SHINK_LIBRARY
       end
       def db_directory
         return @db_directory if @db_directory
-        db_directory = "#{DocumentsPath}/DUC/SU_#{SuVersion}_db"
+        db_directory = "#{DocumentsPath}/sketchup_plugin/SU_#{SuVersion}_db"
         FileUtils.mkdir_p(db_directory) unless Dir.exist?(db_directory)
         @db_directory = db_directory
       end
