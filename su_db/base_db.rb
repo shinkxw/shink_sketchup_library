@@ -69,21 +69,23 @@ module SHINK_LIBRARY
         super(section, key)
       end
       def get_str
-        str = @entity.get_attribute(@section, @key)
-        str ? eval(str) : nil
+        base64 = @entity.get_attribute(@section, @key)
+        base64 ? Base64.decode64(base64) : nil
       end
       def save_str(str)
-        SuEntityAttribute.add_set(@entity, @section, @key, str.inspect)
+        base64 = Base64.encode64(str)
+        SuEntityAttribute.add_set(@entity, @section, @key, base64)
       end
     end
 
     class ModelAdapter < Adapter
       def get_str
-        str = Sketchup.active_model.get_attribute(@section, @key)
-        str ? eval(str) : nil
+        base64 = Sketchup.active_model.get_attribute(@section, @key)
+        base64 ? Base64.decode64(base64) : nil
       end
       def save_str(str)
-        SuEntityAttribute.add_set(Sketchup.active_model, @section, @key, str.inspect)
+        base64 = Base64.encode64(str)
+        SuEntityAttribute.add_set(Sketchup.active_model, @section, @key, base64)
       end
     end
 
