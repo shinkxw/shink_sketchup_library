@@ -65,4 +65,5 @@ module SHINK_LIBRARY
   end
 
   GemManager.register_gem('zip', 'Zip', 'gems/rubyzip-1.2.1/lib', '_zip', '/rubyzip')
+  GemManager.register_gem('down', 'Down', 'gems/down-4.5.0/lib', '_down', '/down')
 end
