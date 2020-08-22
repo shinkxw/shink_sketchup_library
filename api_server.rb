@@ -27,7 +27,7 @@ module SHINK_LIBRARY
               query_hash[k] = v.force_encoding('UTF-8').to_s
             end
             query = OpenStruct.new(query_hash)
-            body, status, content_type = proc.call(query)
+            body, status, content_type = proc.call(query, get_body_os(req))
             res.status = status if status
             res.body = body
             res.content_type = content_type || default_content_type
@@ -44,6 +44,11 @@ module SHINK_LIBRARY
         end
       end
       server
+    end
+
+    def get_body_os(req)
+      return nil if req.body.nil?
+      OpenStruct.new(JSON.parse(req.body))
     end
 
     def start(document_root = @document_root)
