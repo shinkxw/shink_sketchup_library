@@ -66,4 +66,5 @@ module SHINK_LIBRARY
 
   GemManager.register_gem('zip', 'Zip', 'gems/rubyzip-1.2.1/lib', '_zip', '/rubyzip')
   GemManager.register_gem('down', 'Down', 'gems/down-4.5.0/lib', '_down', '/down')
+  GemManager.register_gem('write_xlsx', %w(WriteXLSX Writexlsx ZipFileUtils Zip2), 'gems/write_xlsx-0.85.7/lib', '_write_xlsx', '/_write_xlsx')
 end
