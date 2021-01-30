@@ -1,5 +1,8 @@
 module SHINK_LIBRARY
   class ApiServer
+    HTTPUtils = WEBrick::HTTPUtils
+    HTTPStatus = WEBrick::HTTPStatus
+
     def initialize(port, document_root = nil, log = nil)
       @port, @document_root = port, document_root
       @log = log.is_a?(File) ? log : File.open(log, 'w+') if log
@@ -43,7 +46,49 @@ module SHINK_LIBRARY
           end
         end
       end
+
+      add_local_file_proxy(server)
+
       server
+    end
+
+    def add_local_file_proxy(server)
+      server.mount_proc('/lf') do |req, res|
+        local_path = req.query['path']
+        local_path = URI::unescape(local_path).force_encoding('UTF-8') if local_path
+        if local_path && File.exist?(local_path)
+          st = File::stat(local_path)
+          mtime = st.mtime
+          res['etag'] = sprintf("%x-%x-%x", st.ino, st.size, st.mtime.to_i)
+
+          if not_modified?(req, res, mtime, res['etag'])
+            res.body = ''
+            raise HTTPStatus::NotModified
+          else
+            mtype = HTTPUtils::mime_type(local_path, HTTPUtils::DefaultMimeTypes)
+            res['content-type'] = mtype
+            res['content-length'] = st.size.to_s
+            res['last-modified'] = mtime.httpdate
+            res.body = File.open(local_path, "rb")
+          end
+        else
+          raise HTTPStatus::NotFound
+        end
+      end
+    end
+
+    def not_modified?(req, res, mtime, etag)
+      if ir = req['if-range']
+        begin
+          return true if Time.httpdate(ir) >= mtime
+        rescue
+          return true if HTTPUtils::split_header_value(ir).member?(res['etag'])
+        end
+      end
+
+      return true if (ims = req['if-modified-since']) && Time.parse(ims) >= mtime
+      return true if (inm = req['if-none-match']) && HTTPUtils::split_header_value(inm).member?(res['etag'])
+      return false
     end
 
     def get_body_os(req)
