@@ -55,7 +55,7 @@ module SHINK_LIBRARY
     def add_local_file_proxy(server)
       server.mount_proc('/lf') do |req, res|
         local_path = req.query['path']
-        local_path = URI::unescape(local_path).force_encoding('UTF-8') if local_path
+        local_path = Base64.urlsafe_decode64(local_path).force_encoding('UTF-8') if local_path
         if local_path && File.exist?(local_path)
           st = File::stat(local_path)
           mtime = st.mtime
