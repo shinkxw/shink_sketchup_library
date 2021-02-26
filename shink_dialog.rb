@@ -36,7 +36,7 @@ module SHINK_LIBRARY
     end
 
     def set_window_size(width, height)
-      set_size(width + 16, height + 38)
+      set_size(width + 14, height + 37)
     end
 
     def after_close(&block)
