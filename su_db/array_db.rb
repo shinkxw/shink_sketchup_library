@@ -4,7 +4,7 @@ module SHINK_LIBRARY
       def load(data);data ? data : [] end
       def to_json;@obj.to_json end
       def need_save_mathods
-        %i(<< push clear unshift insert []= delete delete_if replace)
+        %i(<< push pop clear shift unshift insert []= delete delete_if replace)
       end
     end
 
