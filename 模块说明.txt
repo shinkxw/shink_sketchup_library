@@ -51,3 +51,28 @@ ReuseService
 
     LocalServer.add_user('XXXDialog')#打开窗口时调用
     LocalServer.delete_user('XXXDialog')#关闭窗口时调用
+
+ShinkDialog
+  HtmlDialog的封装
+  初始化:
+    def initialize(title, type)
+      @type = type
+      properties = {dialog_title: title, preferences_key: "#{PluginName}_#{type}"}
+      properties.merge!({width: 0, height: 0, left: 500, top: 150, scrollable: true, resizable: true})
+      set_min_size_by_type(properties)
+      super(properties)
+      set_callback
+    end
+  调用方式:
+    def show_browser(title, type)
+      if check_browser && check_port
+        iv_name = "@#{type}_dialog"
+        browser = self.instance_variable_get(iv_name)
+        if browser.nil? || !browser.visible?
+          browser.close if browser
+          browser = Browser.new(title, type)
+          self.instance_variable_set(iv_name, browser)
+        end
+        browser.show
+      end
+    end
