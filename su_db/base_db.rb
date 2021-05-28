@@ -13,6 +13,9 @@ module SHINK_LIBRARY
         reload
       end
       def reload;@obj = load(get_data) end
+      def check_file
+        reload if @adapter.file_has_change?
+      end
       def get_data
         deflate_str = @adapter.get_str
         return nil if deflate_str.nil?
@@ -29,6 +32,8 @@ module SHINK_LIBRARY
           EntityAdapter.new(mode, section, key)
         when :file
           FileAdapter.new(section, key)
+        when Adapter
+          mode
         else
           raise "未知的适配器类型: #{mode}"
         end
@@ -51,6 +56,7 @@ module SHINK_LIBRARY
       def initialize(section, key);@section, @key = section, key end
       def get_str;end
       def save_str(str);end
+      def file_has_change?;false end
     end
 
     class GlobalAdapter < Adapter
@@ -90,8 +96,9 @@ module SHINK_LIBRARY
     end
 
     class FileAdapter < Adapter
-      def initialize(section, key)
-        super
+      def initialize(section, key, db_directory = nil)
+        super(section, key)
+        @db_directory = db_directory
         if File.exist?(file_path)
           if file_test?(file_path)
             backup_file if backup_file_list.empty?#备份文件如果未备份过
@@ -109,11 +116,18 @@ module SHINK_LIBRARY
         end
       end
       def get_str
-        File.open(file_path, "rb"){|f| f.read} if File.exist?(file_path)
+        if File.exist?(file_path)
+          @mtime = File.mtime(file_path)
+          File.open(file_path, "rb"){|f| f.read}
+        end
       end
       def save_str(str)
         File.open(file_path, "wb"){|f| f.syswrite(str)}
+        @mtime = File.mtime(file_path)
         backup_file#备份
+      end
+      def file_has_change?
+        @mtime && File.mtime(file_path) > @mtime
       end
       def file_test?(path)#验证文件能否使用
         Zlib::Inflate.inflate(File.open(path, "rb"){|f| f.read}) rescue false

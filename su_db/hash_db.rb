@@ -3,7 +3,7 @@ module SHINK_LIBRARY
     class HashDb < AutoSaveDb
       def load(data);data ? data : {} end
       def [](key);@obj[key] end
-      def need_save_mathods;%i([]= replace) end
+      def need_save_mathods;%i([]= delete replace) end
     end
 
     # describe HashDb do
