@@ -38,6 +38,6 @@ $LOAD_PATH.delete(File.dirname(__FILE__))
 $LOADED_FEATURES.replace($LOADED_FEATURES.find_all{|p| !p.include?('shink_')})
 
 module SHINK_LIBRARY
-  VERSION = '0.2.0'.freeze
+  VERSION = '0.2.1'.freeze
   # load_gem('zip')
 end
