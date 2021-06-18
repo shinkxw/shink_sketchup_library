@@ -4,7 +4,7 @@ module SHINK_LIBRARY
 
     def open_folder_and_select(path)#打开文件夹并选中
       if IsWindows
-        system ("Explorer /select, #{path.gsub('/', '\\')}".encode('GBK'))
+        system ("Explorer /select, #{path.gsub('/', '\\')}")
       else
         system ("open -R #{path}")
       end
@@ -12,7 +12,7 @@ module SHINK_LIBRARY
 
     def open_dir(dir)#打开指定路径
       if IsWindows
-        system ("Explorer #{dir.gsub('/', '\\')}".encode('GBK'))
+        system ("Explorer #{dir.gsub('/', '\\')}")
       else
         system ("open #{dir}")
       end
