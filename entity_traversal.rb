@@ -4,11 +4,12 @@ module SHINK_LIBRARY
     def self.all;new(Sketchup.active_model.entities) end
 
     include Enumerable
-    def initialize(entities)
+    def initialize(entities, skip_locked = false)
       @entities = case entities
                   when Sketchup::Entities, Array then entities
                   else [entities]
                   end
+      @skip_locked = skip_locked
     end
 
     def each
@@ -16,6 +17,7 @@ module SHINK_LIBRARY
       while current_entitys.length > 0
         next_entitys = []
         current_entitys.each do |entity|
+          next if need_skip?(entity)
           yield entity
           entity.definition.entities.each{|e| next_entitys << e} if can_traversal?(entity)
         end
@@ -29,12 +31,17 @@ module SHINK_LIBRARY
         while current_entitys.length > 0
           next_entitys = []
           current_entitys.find_all{|e| can_traversal?(e)}.each do |entity|
+            next if need_skip?(entity)
             result << entity
             entity.definition.entities.each{|e| next_entitys << e}
           end
           current_entitys = next_entitys
         end
       end
+    end
+
+    def need_skip?(entity)
+      @skip_locked ? (entity.respond_to?(:locked?) && entity.locked?) : false
     end
 
     def can_traversal?(entity)
