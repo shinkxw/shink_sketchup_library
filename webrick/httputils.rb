@@ -1,17 +1,7 @@
-#
-# httputils.rb -- HTTPUtils Module
-#
-# Author: IPR -- Internet Programming with Ruby -- writers
-# Copyright (c) 2000, 2001 TAKAHASHI Masayoshi, GOTOU Yuuzou
-# Copyright (c) 2002 Internet Programming with Ruby writers. All rights
-# reserved.
-#
-# $IPR: httputils.rb,v 1.34 2003/06/05 21:34:08 gotoyuzo Exp $
-
 require 'socket'
 require 'tempfile'
 
-module WEBrick
+module Shink::WEBrick
   CR   = "\x0d"     # :nodoc:
   LF   = "\x0a"     # :nodoc:
   CRLF = "\x0d\x0a" # :nodoc:

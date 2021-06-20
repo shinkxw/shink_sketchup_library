@@ -1,7 +1,7 @@
 module SHINK_LIBRARY
   class ApiServer
-    HTTPUtils = WEBrick::HTTPUtils
-    HTTPStatus = WEBrick::HTTPStatus
+    HTTPUtils = Shink::WEBrick::HTTPUtils
+    HTTPStatus = Shink::WEBrick::HTTPStatus
 
     def initialize(port, document_root = nil, log = nil)
       @port, @document_root = port, document_root
@@ -17,9 +17,9 @@ module SHINK_LIBRARY
     end
 
     def new_server(document_root)
-      log = WEBrick::Log.new(@log)
-      access_log = [[@log, WEBrick::AccessLog::COMBINED_LOG_FORMAT]]
-      server = WEBrick::HTTPServer.new(Port: @port, DocumentRoot: document_root, Logger: log, AccessLog: access_log)
+      log = Shink::WEBrick::Log.new(@log)
+      access_log = [[@log, Shink::WEBrick::AccessLog::COMBINED_LOG_FORMAT]]
+      server = Shink::WEBrick::HTTPServer.new(Port: @port, DocumentRoot: document_root, Logger: log, AccessLog: access_log)
 
       @api_hash.each do |path, proc|
         server.mount_proc path do |req, res|

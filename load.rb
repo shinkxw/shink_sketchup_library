@@ -10,12 +10,9 @@ require 'ostruct'
 require 'net/http'
 require 'fileutils'
 
+module Shink;end
 Sketchup::require('constants')#常量表
-#补充SU可能缺失的文件
-$LOAD_PATH.push("#{File.dirname(__FILE__)}/su_supplement/su_#{SHINK_LIBRARY::SuVersion}")
-
-require 'webrick'
-
+Sketchup::require('webrick/load')#加载自带的webrick
 Sketchup::require('base64')#加载高版本的base64库
 Sketchup::require('shink_library')#注入基础库的方法
 Sketchup::require('load_gems')#加载gem的方法
