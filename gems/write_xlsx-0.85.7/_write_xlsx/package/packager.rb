@@ -1,18 +1,6 @@
 # -*- coding: utf-8 -*-
-require '_write_xlsx/package/xml_writer_simple'
-require '_write_xlsx/utility'
-require '_write_xlsx/package/app'
-require '_write_xlsx/package/comments'
-require '_write_xlsx/package/content_types'
-require '_write_xlsx/package/core'
-require '_write_xlsx/package/relationships'
-require '_write_xlsx/package/shared_strings'
-require '_write_xlsx/package/styles'
-require '_write_xlsx/package/table'
-require '_write_xlsx/package/theme'
-require '_write_xlsx/package/vml'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   module Package
     class Packager
 

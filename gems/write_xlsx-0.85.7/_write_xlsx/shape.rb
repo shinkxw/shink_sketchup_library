@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   ###############################################################################
   #
   # Shape - A class for writing Excel shapes.

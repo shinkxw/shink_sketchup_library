@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   module NullInputStream #:nodoc:all
     include NullDecompressor
     include IOExtras::AbstractInputStream

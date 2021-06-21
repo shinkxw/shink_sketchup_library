@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class Inflater < Decompressor #:nodoc:all
     def initialize(input_stream, decrypter = NullDecrypter.new)
       super(input_stream)

@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   module IOExtras
     # Implements many of the convenience methods of IO
     # such as gets, getc, readline and readlines

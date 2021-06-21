@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-require '_write_xlsx/utility'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   # ==CELL FORMATTING
   #
   # This section describes the methods and properties that are available

@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class Error < StandardError; end
   class EntryExistsError < Error; end
   class DestinationFileExistsError < Error; end

@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   # Info-ZIP Extra for Zip64 size
   class ExtraField::Zip64 < ExtraField::Generic
     attr_accessor :original_size, :compressed_size, :relative_header_offset, :disk_start_number

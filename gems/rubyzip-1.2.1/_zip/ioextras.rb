@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   module IOExtras #:nodoc:
     CHUNK_SIZE = 131_072
 
@@ -27,9 +27,6 @@ module Zip
     end
   end # IOExtras namespace module
 end
-
-require '_zip/ioextras/abstract_input_stream'
-require '_zip/ioextras/abstract_output_stream'
 
 # Copyright (C) 2002-2004 Thomas Sondergaard
 # rubyzip is free software; you can redistribute it and/or

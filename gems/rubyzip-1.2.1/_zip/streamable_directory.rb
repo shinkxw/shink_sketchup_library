@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class StreamableDirectory < Entry
     def initialize(zipfile, entry, srcPath = nil, permissionInt = nil)
       super(zipfile, entry)

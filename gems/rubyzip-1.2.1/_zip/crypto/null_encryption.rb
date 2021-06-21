@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   module NullEncryption
     def header_bytesize
       0

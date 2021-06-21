@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Worksheet
     class Hyperlink   # :nodoc:
       include Writexlsx::Utility

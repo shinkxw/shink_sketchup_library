@@ -9,9 +9,7 @@
 # Convert to ruby by Hideo NAKAMURA, cxn03651@msj.biglobe.ne.jp
 #
 
-require '_write_xlsx/worksheet'
-
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Chartsheet < Worksheet
     include Writexlsx::Utility
 

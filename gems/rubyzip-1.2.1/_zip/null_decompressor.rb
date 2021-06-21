@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   module NullDecompressor #:nodoc:all
     module_function
 

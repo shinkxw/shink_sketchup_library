@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   module IOExtras
     # Implements many of the output convenience methods of IO.
     # relies on <<

@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   # Olf Info-ZIP Extra for UNIX uid/gid and file timestampes
   class ExtraField::OldUnix < ExtraField::Generic
     HEADER_ID = 'UX'

@@ -11,11 +11,7 @@
 # Convert to ruby by Hideo NAKAMURA, cxn03651@msj.biglobe.ne.jp
 #
 
-require '_write_xlsx/package/xml_writer_simple'
-require '_write_xlsx/chart'
-require '_write_xlsx/utility'
-
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Chart
     # A Pie chart doesn't have an X or Y axis so the following common chart
     # methods are ignored.

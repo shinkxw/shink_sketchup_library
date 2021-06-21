@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   # InputStream is the basic class for reading zip entries in a
   # zip file. It is possible to create a InputStream object directly,
   # passing the zip file name to the constructor, but more often than not

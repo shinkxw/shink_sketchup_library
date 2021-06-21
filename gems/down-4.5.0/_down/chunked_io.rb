@@ -3,7 +3,7 @@
 require "tempfile"
 require "fiber"
 
-module Down
+module Shink::BaseLibrary::Down
   # Wraps an enumerator that yields chunks of content into an IO object. It
   # implements some essential IO methods:
   #

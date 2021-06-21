@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-require '_write_xlsx/col_name'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   module Utility
     ROW_MAX  = 1048576  # :nodoc:
     COL_MAX  = 16384    # :nodoc:

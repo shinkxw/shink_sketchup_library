@@ -4,7 +4,7 @@
 #
 require 'stringio'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   module Package
     class XMLWriterSimple
       XMLNS = 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'

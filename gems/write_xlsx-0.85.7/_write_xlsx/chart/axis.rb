@@ -1,9 +1,6 @@
 # -*- encoding: utf-8 -*-
-require '_write_xlsx/package/xml_writer_simple'
-require '_write_xlsx/utility'
-require '_write_xlsx/chart/caption'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Chart
     class Axis < Caption
       include Writexlsx::Utility

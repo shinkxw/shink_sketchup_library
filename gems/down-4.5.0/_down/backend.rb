@@ -1,13 +1,6 @@
 # frozen-string-literal: true
 
-require "_down/version"
-require "_down/chunked_io"
-require "_down/errors"
-require "_down/utils"
-
-require "fileutils"
-
-module Down
+module Shink::BaseLibrary::Down
   class Backend
     def self.download(*args, &block)
       new.download(*args, &block)

@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class EntrySet #:nodoc:all
     include Enumerable
     attr_accessor :entry_set, :entry_order

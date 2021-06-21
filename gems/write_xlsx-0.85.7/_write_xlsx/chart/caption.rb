@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Chart
     class Caption
       attr_accessor :name, :formula, :data_id, :name_font

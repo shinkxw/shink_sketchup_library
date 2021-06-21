@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Colors
     COLORS = {
       :aqua    => 0x0F,

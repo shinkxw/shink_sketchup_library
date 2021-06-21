@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   RUNNING_ON_WINDOWS = RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/i
 
   CENTRAL_DIRECTORY_ENTRY_SIGNATURE = 0x02014b50

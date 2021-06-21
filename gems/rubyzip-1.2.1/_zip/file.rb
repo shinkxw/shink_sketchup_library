@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   # ZipFile is modeled after java.util.zip.ZipFile from the Java SDK.
   # The most important methods are those inherited from
   # ZipCentralDirectory for accessing information about the entries in

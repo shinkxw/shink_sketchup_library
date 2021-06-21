@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   # PKWARE NTFS Extra Field (0x000a)
   # Only Tag 0x0001 is supported
   class ExtraField::NTFS < ExtraField::Generic

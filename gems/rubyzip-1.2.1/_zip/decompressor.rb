@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class Decompressor  #:nodoc:all
     CHUNK_SIZE = 32_768
     def initialize(input_stream)

@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class StreamableStream < DelegateClass(Entry) # nodoc:all
     def initialize(entry)
       super(entry)

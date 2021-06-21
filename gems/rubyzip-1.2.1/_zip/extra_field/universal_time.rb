@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   # Info-ZIP Additional timestamp field
   class ExtraField::UniversalTime < ExtraField::Generic
     HEADER_ID = 'UT'

@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   # ZipOutputStream is the basic class for writing zip files. It is
   # possible to create a ZipOutputStream object directly, passing
   # the zip file name to the constructor, but more often than not

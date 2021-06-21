@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
-require '_write_xlsx/package/xml_writer_simple'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Formats
     include Writexlsx::Utility
 

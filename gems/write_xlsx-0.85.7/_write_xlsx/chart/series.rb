@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Chart
-    require '_write_xlsx/gradient'
-
     class Chartline
       include Writexlsx::Utility
       include Writexlsx::Gradient

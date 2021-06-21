@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class PassThruDecompressor < Decompressor  #:nodoc:all
     def initialize(input_stream, chars_to_read)
       super(input_stream)

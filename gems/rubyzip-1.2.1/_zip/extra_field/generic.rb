@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class ExtraField::Generic
     def self.register_map
       if self.const_defined?(:HEADER_ID)

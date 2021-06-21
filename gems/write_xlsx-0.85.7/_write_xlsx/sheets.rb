@@ -1,8 +1,7 @@
 # -*- encoding: utf-8 -*-
 require 'delegate'
-require '_write_xlsx/package/xml_writer_simple'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Sheets < DelegateClass(Array)
     include Writexlsx::Utility
 

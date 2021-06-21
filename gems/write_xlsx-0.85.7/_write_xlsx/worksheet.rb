@@ -1,20 +1,7 @@
 # -*- coding: utf-8 -*-
-require '_write_xlsx/package/xml_writer_simple'
-require '_write_xlsx/package/button'
-require '_write_xlsx/colors'
-require '_write_xlsx/format'
-require '_write_xlsx/drawing'
-require '_write_xlsx/sparkline'
-require '_write_xlsx/compatibility'
-require '_write_xlsx/utility'
-require '_write_xlsx/package/conditional_format'
-require '_write_xlsx/worksheet/cell_data'
-require '_write_xlsx/worksheet/data_validation'
-require '_write_xlsx/worksheet/hyperlink'
-require '_write_xlsx/worksheet/page_setup'
 require 'tempfile'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   #
   # A new worksheet is created by calling the add_worksheet() method from a
   # workbook object:

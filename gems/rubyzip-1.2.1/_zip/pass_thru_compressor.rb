@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class PassThruCompressor < Compressor #:nodoc:all
     def initialize(outputStream)
       super()

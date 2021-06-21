@@ -1,20 +1,6 @@
 # -*- coding: utf-8 -*-
-require '_write_xlsx/package/xml_writer_simple'
-require '_write_xlsx/package/packager'
-require '_write_xlsx/sheets'
-require '_write_xlsx/worksheet'
-require '_write_xlsx/chartsheet'
-require '_write_xlsx/formats'
-require '_write_xlsx/format'
-require '_write_xlsx/shape'
-require '_write_xlsx/utility'
-require '_write_xlsx/chart'
-require '_write_xlsx/zip_file_utils'
-require 'tmpdir'
-require 'tempfile'
-require 'digest/md5'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
 
   OFFICE_URL = 'http://schemas.microsoft.com/office/'   # :nodoc:
 

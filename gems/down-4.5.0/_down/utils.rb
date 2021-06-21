@@ -1,6 +1,6 @@
 require "cgi"
 
-module Down
+module Shink::BaseLibrary::Down
   module Utils
     module_function
 

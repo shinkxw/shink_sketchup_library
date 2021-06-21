@@ -11,10 +11,7 @@
 # Convert to ruby by Hideo NAKAMURA, cxn03651@msj.biglobe.ne.jp
 #
 
-require '_write_xlsx/package/xml_writer_simple'
-require '_write_xlsx/utility'
-
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Chart
     # The Column chart module also supports the following sub-types:
     #

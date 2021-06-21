@@ -1,20 +1,6 @@
 # frozen-string-literal: true
 
-require "open-uri"
-
-begin
-  require "net/https"
-rescue Exception
-end
-
-
-require "_down/backend"
-
-require "tempfile"
-require "fileutils"
-require "cgi"
-
-module Down
+module Shink::BaseLibrary::Down
   class NetHttp < Backend
     def initialize(options = {})
       @options = {

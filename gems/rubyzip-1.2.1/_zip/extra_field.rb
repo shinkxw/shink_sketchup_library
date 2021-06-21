@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class ExtraField < Hash
     ID_MAP = {}
 
@@ -87,14 +87,6 @@ module Zip
     alias size local_size
   end
 end
-
-require '_zip/extra_field/generic'
-require '_zip/extra_field/universal_time'
-require '_zip/extra_field/old_unix'
-require '_zip/extra_field/unix'
-require '_zip/extra_field/zip64'
-require '_zip/extra_field/zip64_placeholder'
-require '_zip/extra_field/ntfs'
 
 # Copyright (C) 2002, 2003 Thomas Sondergaard
 # rubyzip is free software; you can redistribute it and/or

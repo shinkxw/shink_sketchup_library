@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   module TraditionalEncryption
     def initialize(password)
       @password = password

@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class Entry
     STORED   = 0
     DEFLATED = 8

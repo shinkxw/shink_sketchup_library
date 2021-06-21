@@ -1,4 +1,4 @@
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   module Gradient
     def gradient_properties(args)
       return unless ptrue?(args)

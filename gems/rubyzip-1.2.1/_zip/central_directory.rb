@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   class CentralDirectory
     include Enumerable
 

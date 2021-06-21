@@ -1,12 +1,6 @@
 # -*- coding: utf-8 -*-
-require '_write_xlsx/package/xml_writer_simple'
-require '_write_xlsx/gradient'
-require '_write_xlsx/utility'
-require '_write_xlsx/chart/axis'
-require '_write_xlsx/chart/caption'
-require '_write_xlsx/chart/series'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   class Table
     include Writexlsx::Utility
 
@@ -162,31 +156,22 @@ module Writexlsx
     def self.factory(current_subclass, subtype = nil) # :nodoc:
       case current_subclass.downcase.capitalize
       when 'Area'
-        require '_write_xlsx/chart/area'
         Chart::Area.new(subtype)
       when 'Bar'
-        require '_write_xlsx/chart/bar'
         Chart::Bar.new(subtype)
       when 'Column'
-        require '_write_xlsx/chart/column'
         Chart::Column.new(subtype)
       when 'Doughnut'
-        require '_write_xlsx/chart/doughnut'
         Chart::Doughnut.new(subtype)
       when 'Line'
-        require '_write_xlsx/chart/line'
         Chart::Line.new(subtype)
       when 'Pie'
-        require '_write_xlsx/chart/pie'
         Chart::Pie.new(subtype)
       when 'Radar'
-        require '_write_xlsx/chart/radar'
         Chart::Radar.new(subtype)
       when 'Scatter'
-        require '_write_xlsx/chart/scatter'
         Chart::Scatter.new(subtype)
       when 'Stock'
-        require '_write_xlsx/chart/stock'
         Chart::Stock.new(subtype)
       end
     end

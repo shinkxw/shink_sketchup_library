@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
-require '_write_xlsx/format'
-require '_write_xlsx/package/xml_writer_simple'
-require '_write_xlsx/utility'
 
-module Writexlsx
+module Shink::BaseLibrary::Writexlsx
   module Package
 
     class Comment

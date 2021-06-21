@@ -1,100 +1,71 @@
 # -*- coding: utf-8 -*-
 
-require '_write_xlsx/workbook'
+require 'tmpdir'
+require 'tempfile'
+require 'digest/md5'
 
-#
-# write is gem to create a new file in the Excel 2007+ XLSX format,
-# and you can use the same interface as writeexcel gem.
-# write_xlsx is converted from Perl’s module github.com/jmcnamara/excel-writer-xlsx .
-#
-# == Description
-# The WriteXLSX supports the following features:
-#
-#    Multiple worksheets
-#    Strings and numbers
-#    Unicode text
-#    Rich string formats
-#    Formulas (including array formats)
-#    cell formatting
-#    Embedded images
-#    Charts
-#    Autofilters
-#    Data validation
-#    Conditional formatting
-#    Tables
-#    Hyperlinks
-#    Defined names
-#    Grouping/Outlines
-#    Cell comments
-#    Panes
-#    Page set-up and printing options
-# WriteXLSX uses the same interface as WriteExcel gem.
-#
-# == Synopsis
-# To write a string, a formatted string, a number and a formula to the
-# first worksheet in an Excel XMLX spreadsheet called ruby.xlsx:
-#
-#   require 'write_xlsx'
-#
-#   # Create a new Excel workbook
-#   workbook = WriteXLSX.new('ruby.xlsx')
-#
-#   # Add a worksheet
-#   worksheet = workbook.add_worksheet
-#
-#   #  Add and define a format
-#   format = workbook.add_format # Add a format
-#   format.set_bold
-#   format.set_color('red')
-#   format.set_align('center')
-#
-#   # Write a formatted and unformatted string, row and column notation.
-#   col = row = 0
-#   worksheet.write(row, col, "Hi Excel!", format)
-#   worksheet.write(1,   col, "Hi Excel!")
-#
-#   # Write a number and a formula using A1 notation
-#   worksheet.write('A3', 1.2345)
-#   worksheet.write('A4', '=SIN(PI()/4)')
-#
-#   workbook.close
-#
-# == Description
-#
-# The WriteXLSX gem can be used to create an Excel file in the 2007+ XLSX
-# format.
-#
-# The XLSX format is the Office Open XML(OOXML) format used by Excel 2007
-# and later.
-#
-# Multiple worksheets can be added to a workbook and formatting can be applied
-# to cells. Text, numbers and formulas can be written to the cells.
-#
-# This module cannot, as yet, be used to write to an exsisting Excel XLSX file.
-#
-# == WriteXLSX and WriteExcel
-#
-# WriteXLSX uses the same interface as the WriteExcel gem which produces an
-# Excel file in binary XLS format.
-#
-# WriteXLSX supports all the features of WriteExcel and in some cases has more
-# functionally.
-#
-# == Other Methods
-#
-# see Writexlsx::Workbook, Writexlsx::Worksheet, Writexlsx::Chart etc.
-#
-class WriteXLSX < Writexlsx::Workbook
-  if RUBY_VERSION < '1.9'
-    $KCODE = 'u'
+module Shink::BaseLibrary
+  module Writexlsx
+    Zip = Shink::BaseLibrary::Zip
+    Writexlsx = self
   end
-end
 
-class WriteXLSXInsufficientArgumentError < StandardError
-end
+  dir = "#{File.dirname(__FILE__)}/_write_xlsx"
+  Sketchup::require "#{dir}/package/xml_writer_simple"
+  Sketchup::require "#{dir}/col_name"
+  Sketchup::require "#{dir}/utility"
+  Sketchup::require "#{dir}/package/app"
+  Sketchup::require "#{dir}/format"
+  Sketchup::require "#{dir}/package/comments"
+  Sketchup::require "#{dir}/package/content_types"
+  Sketchup::require "#{dir}/package/core"
+  Sketchup::require "#{dir}/package/relationships"
+  Sketchup::require "#{dir}/package/shared_strings"
+  Sketchup::require "#{dir}/package/styles"
+  Sketchup::require "#{dir}/package/table"
+  Sketchup::require "#{dir}/package/theme"
+  Sketchup::require "#{dir}/package/vml"
+  Sketchup::require "#{dir}/package/packager"
+  Sketchup::require "#{dir}/sheets"
+  Sketchup::require "#{dir}/package/button"
+  Sketchup::require "#{dir}/colors"
+  Sketchup::require "#{dir}/drawing"
+  Sketchup::require "#{dir}/sparkline"
+  Sketchup::require "#{dir}/package/conditional_format"
+  Sketchup::require "#{dir}/worksheet/cell_data"
+  Sketchup::require "#{dir}/worksheet/data_validation"
+  Sketchup::require "#{dir}/worksheet/hyperlink"
+  Sketchup::require "#{dir}/worksheet/page_setup"
+  Sketchup::require "#{dir}/worksheet"
+  Sketchup::require "#{dir}/chartsheet"
+  Sketchup::require "#{dir}/formats"
+  Sketchup::require "#{dir}/shape"
+  Sketchup::require "#{dir}/gradient"
+  Sketchup::require "#{dir}/chart/caption"
+  Sketchup::require "#{dir}/chart/axis"
+  Sketchup::require "#{dir}/chart/series"
+  Sketchup::require "#{dir}/chart"
+  Sketchup::require "#{dir}/zip_file_utils"
+  Sketchup::require "#{dir}/workbook"
+  Sketchup::require "#{dir}/chart/area"
+  Sketchup::require "#{dir}/chart/bar"
+  Sketchup::require "#{dir}/chart/column"
+  Sketchup::require "#{dir}/chart/pie"
+  Sketchup::require "#{dir}/chart/doughnut"
+  Sketchup::require "#{dir}/chart/line"
+  Sketchup::require "#{dir}/chart/radar"
+  Sketchup::require "#{dir}/chart/scatter"
+  Sketchup::require "#{dir}/chart/stock"
 
-class WriteXLSXDimensionError < StandardError
-end
+  class WriteXLSX < Writexlsx::Workbook
+  end
 
-class WriteXLSXOptionParameterError < StandardError
+  class WriteXLSXInsufficientArgumentError < StandardError
+  end
+
+  class WriteXLSXDimensionError < StandardError
+  end
+
+  class WriteXLSXOptionParameterError < StandardError
+  end
 end

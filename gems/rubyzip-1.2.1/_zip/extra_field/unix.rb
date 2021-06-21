@@ -1,4 +1,4 @@
-module Zip
+module Shink::BaseLibrary::Zip
   # Info-ZIP Extra for UNIX uid/gid
   class ExtraField::IUnix < ExtraField::Generic
     HEADER_ID = 'Ux'
