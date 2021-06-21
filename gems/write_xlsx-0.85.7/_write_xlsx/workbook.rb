@@ -1334,7 +1334,7 @@ module Writexlsx
     end
 
     def zip_entry_for_part(part)
-      Zip2::Entry.new("", part)
+      Zip::Entry.new("", part)
     end
 
     #
