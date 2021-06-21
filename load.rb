@@ -34,6 +34,7 @@ module Shink
     Sketchup::require("#{dir}/shink_dialog")#加强回调的网页对话框(谷歌内核)
     Sketchup::require("#{dir}/shink_browser")#加强回调的网页对话框
 
+    Base64 = Shink::Base64
     SuRunJs = Shink::SuRunJs
     SuEntityAttribute = Shink::SuEntityAttribute
     VERSION = '0.2.1'.freeze
