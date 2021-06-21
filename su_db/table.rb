@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   module SuDb
     #表内保存的类需提供以下方法
     #从hash新建实例的类方法, 使用new_method参数提供

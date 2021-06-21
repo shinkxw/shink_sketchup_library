@@ -1,7 +1,8 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   class ApiServer
-    HTTPUtils = Shink::WEBrick::HTTPUtils
-    HTTPStatus = Shink::WEBrick::HTTPStatus
+    WEBrick = ::Shink::WEBrick
+    HTTPUtils = WEBrick::HTTPUtils
+    HTTPStatus = WEBrick::HTTPStatus
 
     def initialize(port, document_root = nil, log = nil)
       @port, @document_root = port, document_root
@@ -17,9 +18,9 @@ module SHINK_LIBRARY
     end
 
     def new_server(document_root)
-      log = Shink::WEBrick::Log.new(@log)
-      access_log = [[@log, Shink::WEBrick::AccessLog::COMBINED_LOG_FORMAT]]
-      server = Shink::WEBrick::HTTPServer.new(Port: @port, DocumentRoot: document_root, Logger: log, AccessLog: access_log)
+      log = WEBrick::Log.new(@log)
+      access_log = [[@log, WEBrick::AccessLog::COMBINED_LOG_FORMAT]]
+      server = WEBrick::HTTPServer.new(Port: @port, DocumentRoot: document_root, Logger: log, AccessLog: access_log)
 
       @api_hash.each do |path, proc|
         server.mount_proc path do |req, res|
@@ -39,9 +40,9 @@ module SHINK_LIBRARY
           rescue HTTPFail => http_fail
             res.status, res.body = http_fail.status, http_fail.body
           rescue => err
-            output(err.class)
-            output(err.message)
-            output(err.backtrace)
+            Shink.output(err.class)
+            Shink.output(err.message)
+            Shink.output(err.backtrace)
             res.status, res.body = 400, err.message
           end
         end
@@ -101,7 +102,7 @@ module SHINK_LIBRARY
       begin
         server.start
       rescue => e
-        output(e.message)
+        Shink.output(e.message)
       ensure
         server.shutdown
       end

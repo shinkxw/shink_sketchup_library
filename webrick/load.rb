@@ -3,24 +3,25 @@ module Shink::WEBrick
 
   VERSION = "1.3.2"
 
-  Sketchup::require 'webrick/httpversion'
-  Sketchup::require 'webrick/httputils'
-  Sketchup::require 'webrick/utils'
-  Sketchup::require 'webrick/log'
-  Sketchup::require 'webrick/config'
-  Sketchup::require 'webrick/server'
-  Sketchup::require 'webrick/accesslog'
+  dir = File.dirname(__FILE__)
+  Sketchup::require "#{dir}/httpversion"
+  Sketchup::require "#{dir}/httputils"
+  Sketchup::require "#{dir}/utils"
+  Sketchup::require "#{dir}/log"
+  Sketchup::require "#{dir}/config"
+  Sketchup::require "#{dir}/server"
+  Sketchup::require "#{dir}/accesslog"
 
-  Sketchup::require 'webrick/htmlutils'
-  Sketchup::require 'webrick/cookie'
-  Sketchup::require 'webrick/httpstatus'
-  Sketchup::require 'webrick/httprequest'
-  Sketchup::require 'webrick/httpresponse'
-  Sketchup::require 'webrick/httpserver'
+  Sketchup::require "#{dir}/htmlutils"
+  Sketchup::require "#{dir}/cookie"
+  Sketchup::require "#{dir}/httpstatus"
+  Sketchup::require "#{dir}/httprequest"
+  Sketchup::require "#{dir}/httpresponse"
+  Sketchup::require "#{dir}/httpserver"
 
-  Sketchup::require 'webrick/httpservlet/abstract'
-  Sketchup::require 'webrick/httpservlet/filehandler'
-  Sketchup::require 'webrick/httpservlet/erbhandler'
-  Sketchup::require 'webrick/httpservlet/prochandler'
-  Sketchup::require 'webrick/httpservlet'
+  Sketchup::require "#{dir}/httpservlet/abstract"
+  Sketchup::require "#{dir}/httpservlet/filehandler"
+  Sketchup::require "#{dir}/httpservlet/erbhandler"
+  Sketchup::require "#{dir}/httpservlet/prochandler"
+  Sketchup::require "#{dir}/httpservlet"
 end

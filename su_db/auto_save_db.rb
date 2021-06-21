@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   module SuDb
     class AutoSaveDb < BaseDb
       def need_save(method)

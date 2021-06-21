@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   class ReuseService
     attr_accessor :name
     def initialize(name, &start_service_proc)

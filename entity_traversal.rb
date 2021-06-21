@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   class EntityTraversal
     def self.component_tree;RootNode.new.to_tree end
     def self.all;new(Sketchup.active_model.entities) end

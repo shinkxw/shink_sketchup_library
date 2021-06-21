@@ -1,18 +1,18 @@
 su_puts
   用于向控制台输出, 不受是否主线程限制
   使用方式:
-    output(obj)
+    Shink.output(obj)
 
 su_run_js
   用于让WebDialog执行js, 不受是否主线程限制
   使用方式:
     SuRunJs.set_web_dialog(key, web_dialog)#绑定web_dialog到key上
-    run_js(key, js)#在指定key的web_dialog上执行js
+    Shink.run_js(key, js)#在指定key的web_dialog上执行js
 
 su_entity_attribute
   用于设置对象的属性, 不受是否主线程限制
   使用方式:
-    SuEntityAttribute.add_set(entity, section, key, value)
+    Shink::SuEntityAttribute.add_set(entity, section, key, value)
 
 circulator
   用于轮询, 可设置结束条件与结束后处理

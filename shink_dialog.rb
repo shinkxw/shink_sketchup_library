@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   class ShinkDialog < UI::HtmlDialog
 
     def add_callback(name)
@@ -8,12 +8,16 @@ module SHINK_LIBRARY
         begin
           yield _, param
         rescue => e
-          output(e.class)
-          output(e.message)
-          output(e.backtrace)
+          Shink.output(e.class)
+          Shink.output(e.message)
+          Shink.output(e.backtrace)
           UI.messagebox(e.message)
         end
       end
+    end
+
+    def run_js(key, js)
+      SuRunJs.add_js(key, js)
     end
 
     def show

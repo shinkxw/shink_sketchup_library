@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   class Circulator
     def initialize(gap_sec)
       @id = UI.start_timer(gap_sec, true) do

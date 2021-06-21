@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   IsWindows = !(RUBY_PLATFORM =~ /darwin/i)
   IsDevelop = !__FILE__.include?('SketchUp/Plugins')
   MainThread = Thread.current

@@ -21,7 +21,7 @@
 # The purpose of using base64 to encode data is that it translates any
 # binary data into purely printable characters.
 
-module Base64
+module Shink::Base64
   module_function
 
   # Returns the Base64-encoded version of +bin+.

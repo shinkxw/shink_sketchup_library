@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   def load_gem(name)
     GemManager.load_gem(name, [self])
   end

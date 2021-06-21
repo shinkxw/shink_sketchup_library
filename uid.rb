@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   class UID
     CLOCK_MULTIPLIER = 10000000
     VERSION_CLOCK = 0x0100

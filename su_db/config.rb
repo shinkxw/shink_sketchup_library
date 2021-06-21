@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   module SuDb
     class Config < BaseDb
       def load(data);OpenStruct.new(data ? data : {}) end

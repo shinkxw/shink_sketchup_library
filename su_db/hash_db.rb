@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   module SuDb
     class HashDb < AutoSaveDb
       def load(data);data ? data : {} end

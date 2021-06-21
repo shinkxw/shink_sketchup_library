@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   module SuDb
     def self.set_section(section);@section = section end
     def self.get_section;@section ? @section : 'SU_DB' end

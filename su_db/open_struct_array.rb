@@ -1,4 +1,4 @@
-module SHINK_LIBRARY
+module Shink::BaseLibrary
   module SuDb
     class OpenStructArray < ArrayDb
       def load(data)

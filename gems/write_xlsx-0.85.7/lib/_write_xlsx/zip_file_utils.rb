@@ -4,7 +4,7 @@
 #
 require 'kconv'
 require 'fileutils'
-Zip2 = SHINK_LIBRARY::Zip
+Zip2 = Shink::BaseLibrary::Zip
 
 module ZipFileUtils
 
