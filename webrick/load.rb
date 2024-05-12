@@ -1,5 +1,5 @@
 module Shink::WEBrick
-  Sketchup::require 'webrick/compat' if !Object.const_defined?('Errno', false)
+  Sketchup::require 'webrick/compat' if Sketchup.version.split('.').first.to_i < 24
 
   VERSION = "1.3.2"
 
