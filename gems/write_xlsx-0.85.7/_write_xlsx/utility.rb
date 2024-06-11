@@ -242,7 +242,8 @@ module Shink::BaseLibrary::Writexlsx
 
     # Check for a cell reference in A1 notation and substitute row and column
     def row_col_notation(args)   # :nodoc:
-      if args[0] =~ /^\D/
+      first_arg = args[0]
+      if !first_arg.is_a?(Numeric) && first_arg =~ /^\D/
         substitute_cellref(*args)
       else
         args

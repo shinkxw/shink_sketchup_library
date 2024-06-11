@@ -118,6 +118,7 @@ module Shink::BaseLibrary::Writexlsx
       end
 
       def escape_attributes(str = '')
+        return str if str.is_a?(Numeric)
         return str if !(str =~ /["&<>]/)
 
         str.
@@ -128,6 +129,7 @@ module Shink::BaseLibrary::Writexlsx
       end
 
       def escape_data(str = '')
+        return str if str.is_a?(Numeric)
         if str =~ /[&<>]/
           str.gsub(/&/, '&amp;').
             gsub(/</, '&lt;').
