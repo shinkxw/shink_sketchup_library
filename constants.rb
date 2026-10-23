@@ -3,5 +3,5 @@ module Shink::BaseLibrary
   IsDevelop = !__FILE__.include?('SketchUp/Plugins')
   MainThread = Thread.current
   SuVersion = Sketchup.version.split('.').first.to_i
-  DocumentsPath = ENV['HOME'].encode('UTF-8')
+  DocumentsPath = ENV['HOME'].dup.force_encoding('UTF-8')
 end
